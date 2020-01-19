@@ -1,0 +1,58 @@
+1. Tworzenie tabeli
+CREATE TABLE testowa
+(id NUMBER(2),
+nazwa VARCHAR2(15)
+);
+
+2. Zmiana nazwy tabeli
+RENAME testowa TO test1;
+
+3. Polecenie do wstawiania danych
+INSERT INTO test1
+(id, nazwa) VALUES
+(1,'krowa');
+
+INSERT INTO test1
+VALUES (2,'koñ');
+
+INSERT INTO test1(nazwa)
+VALUES('lew');
+
+INSERT INTO test1
+VALUES(4,NULL);
+
+INSERT INTO test1
+VALUES(2,'lis');
+
+a) Wyœwietla wybrane atrybuty
+SELECT id, nazwa
+FROM test1;
+
+b) Wyœwietla nazwy
+SELECT nazwa 
+FROM test1;
+
+c) Wyœwietla wszystko
+SELECT *
+FROM test1;
+
+4. Kopiowanie zawartoœci jednej tabeli do drugiej (DISTINCT - wyodrêbnij)
+CREATE TABLE test2
+(id NUMBER(2),
+nazwa VARCHAR2(15)
+);
+
+INSERT INTO test2
+SELECT * FROM test1;
+SELECT DISTINCT nazwa
+FROM test1;
+
+5. Tworzenie tabeli i od razu jej uzupe³nienie danymi (na podobieñstwo tabeli 2.)
+CREATE TABLE test3
+AS SELECT * FROM test2;
+
+6. Czyszcznie danych z tabeli
+TRUNCATE TABLE test1;
+
+7. Usuwanie tabeli
+DROP TABLE test1;
